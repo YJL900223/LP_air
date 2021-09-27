@@ -1,0 +1,81 @@
+group	value.sum.mean	value.sum.sd	value.sum.se	L1	L2
+G1	0.139561874	0.008938858	0.002234715	Metabolism	Carbohydrate metabolism
+G2	0.135875225	0.006535513	0.001585095	Metabolism	Carbohydrate metabolism
+G2	0.065609612	0.005676192	0.001376679	Metabolism	Energy metabolism
+G1	0.064311866	0.005966016	0.001491504	Metabolism	Energy metabolism
+G2	0.03661106	0.000886123	0.000214916	Metabolism	Lipid metabolism
+G1	0.037759622	0.001138203	0.000284551	Metabolism	Lipid metabolism
+G2	0.05464392	0.005180156	0.001256372	Metabolism	Nucleotide metabolism
+G1	0.054958258	0.00679951	0.001699878	Metabolism	Nucleotide metabolism
+G2	0.117681991	0.005774613	0.001400549	Metabolism	Amino acid metabolism
+G1	0.115619722	0.005914812	0.001478703	Metabolism	Amino acid metabolism
+G2	0.026455897	0.00098062	0.000237835	Metabolism	Metabolism of other amino acids
+G1	0.026351983	0.000795456	0.000198864	Metabolism	Metabolism of other amino acids
+G2	0.026943258	0.002802861	0.000679794	Metabolism	Glycan biosynthesis and metabolism
+G1	0.029073906	0.003543023	0.000885756	Metabolism	Glycan biosynthesis and metabolism
+G2	0.067309719	0.002236281	0.000542378	Metabolism	Metabolism of cofactors and vitamins
+G1	0.066322631	0.001735539	0.000433885	Metabolism	Metabolism of cofactors and vitamins
+G2	0.025998988	0.002056523	0.00049878	Metabolism	Metabolism of terpenoids and polyketides
+G1	0.026535722	0.002107523	0.000526881	Metabolism	Metabolism of terpenoids and polyketides
+G2	0.008062919	0.000688086	0.000166885	Metabolism	Biosynthesis of other secondary metabolites
+G1	0.008164325	0.000882277	0.000220569	Metabolism	Biosynthesis of other secondary metabolites
+G2	0.037971038	0.003962591	0.00096107	Metabolism	Xenobiotics biodegradation and metabolism
+G1	0.038389182	0.005912354	0.001478088	Metabolism	Xenobiotics biodegradation and metabolism
+G2	0.002042823	0.000320221	7.77E-05	Genetic Information Processing	Transcription
+G1	0.002087342	0.000402255	0.000100564	Genetic Information Processing	Transcription
+G2	0.046441618	0.006496175	0.001575554	Genetic Information Processing	Translation
+G1	0.046903253	0.008081012	0.002020253	Genetic Information Processing	Translation
+G1	0.02324046	0.002156081	0.00053902	Genetic Information Processing	"Folding, sorting and degradation"
+G2	0.023081165	0.001897482	0.000460207	Genetic Information Processing	"Folding, sorting and degradation"
+G2	0.043314881	0.005591784	0.001356207	Genetic Information Processing	Replication and repair
+G1	0.044690402	0.00642354	0.001605885	Genetic Information Processing	Replication and repair
+G2	0.126744562	0.010265245	0.002489688	Environmental Information Processing	Membrane transport
+G1	0.121522401	0.010586581	0.002646645	Environmental Information Processing	Membrane transport
+G2	0.075723164	0.01075963	0.002609594	Environmental Information Processing	Signal transduction
+G1	0.076033739	0.013672703	0.003418176	Environmental Information Processing	Signal transduction
+G2	1.13E-05	2.57E-06	6.23E-07	Environmental Information Processing	Signaling molecules and interaction
+G1	1.06E-05	3.87E-06	9.68E-07	Environmental Information Processing	Signaling molecules and interaction
+G2	0.003001513	0.000610696	0.000148116	Cellular Processes	Transport and catabolism
+G1	0.00349389	0.000946459	0.000236615	Cellular Processes	Transport and catabolism
+G2	0.02078466	0.004811686	0.001167005	Cellular Processes	Cell motility
+G1	0.018722697	0.005624549	0.001406137	Cellular Processes	Cell motility
+G2	0.01569612	0.002174493	0.000527392	Cellular Processes	Cell growth and death
+G1	0.014857014	0.001994951	0.000498738	Cellular Processes	Cell growth and death
+G2	8.31E-06	2.98E-06	7.22E-07	Cellular Processes	Cellular community - eukaryotes
+G1	8.69E-06	3.84E-06	9.60E-07	Cellular Processes	Cellular community - eukaryotes
+G2	0.004600019	0.001620838	0.000393111	Cellular Processes	Cellular community - prokaryotes
+G1	0.004879387	0.002261732	0.000565433	Cellular Processes	Cellular community - prokaryotes
+G2	0.000664816	0.000168539	4.09E-05	Organismal Systems	Immune system
+G1	0.000711049	0.000214714	5.37E-05	Organismal Systems	Immune system
+G2	0.003043588	0.000380359	9.23E-05	Organismal Systems	Endocrine system
+G1	0.003277344	0.000480665	0.000120166	Organismal Systems	Endocrine system
+G2	0.000112632	3.09E-05	7.49E-06	Organismal Systems	Circulatory system
+G1	0.00010047	3.73E-05	9.33E-06	Organismal Systems	Circulatory system
+G1	0.001472277	0.000332015	8.30E-05	Organismal Systems	Digestive system
+G2	0.001324167	0.000198178	4.81E-05	Organismal Systems	Digestive system
+G2	0.000178746	1.62E-05	3.93E-06	Organismal Systems	Excretory system
+G1	0.000180523	2.86E-05	7.15E-06	Organismal Systems	Excretory system
+G2	0.001062053	0.000144872	3.51E-05	Organismal Systems	Nervous system
+G1	0.001028853	0.000148583	3.71E-05	Organismal Systems	Nervous system
+G2	0.002377779	0.000218017	5.29E-05	Organismal Systems	Environmental adaptation
+G1	0.002404861	0.00022851	5.71E-05	Organismal Systems	Environmental adaptation
+G2	0.001386652	0.000313848	7.61E-05	Human Diseases	Cancers: Overview
+G1	0.001358565	0.000313125	7.83E-05	Human Diseases	Cancers: Overview
+G2	0.000482818	2.31E-05	5.60E-06	Human Diseases	Cancers: Specific types
+G1	0.000476227	3.42E-05	8.56E-06	Human Diseases	Cancers: Specific types
+G2	0.000448726	7.57E-05	1.84E-05	Human Diseases	Immune diseases
+G1	0.000487386	8.90E-05	2.22E-05	Human Diseases	Immune diseases
+G2	0.002017273	0.000152105	3.69E-05	Human Diseases	Neurodegenerative diseases
+G1	0.002015596	0.000141217	3.53E-05	Human Diseases	Neurodegenerative diseases
+G2	0.000230243	7.83E-05	1.90E-05	Human Diseases	Substance dependence
+G1	0.000220496	9.26E-05	2.32E-05	Human Diseases	Substance dependence
+G2	5.91E-05	1.50E-05	3.64E-06	Human Diseases	Cardiovascular diseases
+G1	4.80E-05	1.76E-05	4.39E-06	Human Diseases	Cardiovascular diseases
+G2	0.000570121	5.94E-05	1.44E-05	Human Diseases	Endocrine and metabolic diseases
+G1	0.000563348	9.00E-05	2.25E-05	Human Diseases	Endocrine and metabolic diseases
+G2	0.019045544	0.004233925	0.001026878	Human Diseases	Infectious diseases: Bacterial
+G1	0.019762303	0.004181022	0.001045255	Human Diseases	Infectious diseases: Bacterial
+G2	5.56E-05	2.77E-05	6.72E-06	Human Diseases	Infectious diseases: Viral
+G1	4.04E-05	2.24E-05	5.59E-06	Human Diseases	Infectious diseases: Viral
+G1	0.00107488	0.000294629	7.37E-05	Human Diseases	Infectious diseases: Parasitic
+G2	0.001104338	0.000320931	7.78E-05	Human Diseases	Infectious diseases: Parasitic

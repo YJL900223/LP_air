@@ -1,0 +1,254 @@
+---
+title: "FEAST"
+author: "yjl"
+date: "2020/3/24"
+output: html_document
+---
+
+## 二、FEAST
+
+### 1、数据准备
+
+```{r}
+rm(list = ls())
+library(knitr)
+```
+转换格式
+```{r, engine = 'sh', count_line}
+cp data//otus.txt Data_files//otu_example_multi.txt
+sed -i '1d' Data_files//otu_example_multi.txt
+```
+
+**metadata文件一定要整理好，理解哪些作为源哪些作为sink**
+
+```{r}
+source("FEAST_src//src.R")
+
+#Set the arguments of your data
+metadata_file = "Data_files/metadata_example_multi.txt"
+count_matrix = "Data_files/otu_example_multi.txt"
+EM_iterations = 1000 #default value
+##if you use different sources for each sink, different_sources_flag = 1, otherwise = 0
+different_sources_flag = 1
+
+
+# Load sample metadata
+metadata <- read.csv(metadata_file,h=T, sep = "\t", row.names = 1)
+
+# Load OTU table
+otus <- read.table(count_matrix, header = T, comment = '', check = F, sep = '\t',row.names = 1)
+otus <- t(as.matrix(otus))
+
+
+# Extract only those samples in common between the two tables
+common.sample.ids <- intersect(rownames(metadata), rownames(otus))
+otus <- otus[common.sample.ids,]
+metadata <- metadata[common.sample.ids,]
+# Double-check that the mapping file and otu table
+# had overlapping samples
+if(length(common.sample.ids) <= 1) {
+  message <- paste(sprintf('Error: there are %d sample ids in common '),
+                   'between the metadata file and data table')
+  stop(message)
+}
+
+
+if(different_sources_flag == 0){
+  
+  metadata$id[metadata$SourceSink == 'source'] = NA
+  metadata$id[metadata$SourceSink == 'sink'] = c(1:length(which(metadata$SourceSink == 'sink')))
+}
+
+
+envs <- metadata$Env
+Ids <- na.omit(unique(metadata$id))
+Proportions_est <- list()
+
+
+for(it in 1:length(Ids)){
+  
+  
+  # Extract the source environments and source/sink indices
+  if(different_sources_flag == 1){
+    
+    train.ix <- which(metadata$SourceSink=='source')
+    test.ix <- which(metadata$SourceSink=='sink' & metadata$id == Ids[it])
+
+  }
+  
+  else{
+    
+    train.ix <- which(metadata$SourceSink=='source')
+    test.ix <- which(metadata$SourceSink=='sink' & metadata$id == Ids[it])
+  }
+  
+  num_sources <- length(train.ix)
+  COVERAGE =  min(rowSums(otus[c(train.ix, test.ix),]))  #Can be adjusted by the user
+  
+  # Define sources and sinks
+  
+  sources <- as.matrix(rarefy(otus[train.ix,], COVERAGE))
+  sinks <- as.matrix(rarefy(t(as.matrix(otus[test.ix,])), COVERAGE))
+  
+  
+  print(paste("Number of OTUs in the sink sample = ",length(which(sinks > 0))))
+  print(paste("Seq depth in the sources and sink samples = ",COVERAGE))
+  print(paste("The sink is:", envs[test.ix]))
+  
+  # Estimate source proportions for each sink
+  
+  FEAST_output<-FEAST(source=sources, sinks = t(sinks), env = envs[train.ix], em_itr = EM_iterations, COVERAGE = COVERAGE)
+  Proportions_est[[it]] <- FEAST_output$data_prop[,1]
+  
+  
+  names(Proportions_est[[it]]) <- c(as.character(envs[train.ix]), "unknown")
+  
+  if(length(Proportions_est[[it]]) < num_sources +1){
+    
+    tmp = Proportions_est[[it]]
+    Proportions_est[[it]][num_sources] = NA
+    Proportions_est[[it]][num_sources+1] = tmp[num_sources]
+  }
+  
+  print("Source mixing proportions")
+  print(Proportions_est[[it]])
+  
+
+}
+
+print(Proportions_est)
+
+names <- c(as.character(envs[train.ix]), "unknown")
+pro_data <- data.frame(names)
+for (i in 1:33) {
+  pro_data[paste0("sample", i)] <- c(Proportions_est[[i]])
+}
+
+data <- melt(pro_data,id.vars='names')
+# 过滤比例小于 1% 的来源
+data <- data[data$value>0.01,]
+# 保留一位小数
+data$value <- round(data$value*100, digits = 1)
+library(plyr)
+data1 <- aggregate(value ~ names + variable, data = data, sum)
+
+library(ggplot2)
+library(RColorBrewer)
+library(ggsci)
+data1$names <- factor(data1$names,levels = c("Oral","Plant","unknown","Soil","Skin","Gut"))
+(p2 <- ggplot(data=data1,aes(variable,value,fill=names))+
+    geom_bar(stat="identity", position="fill",color="black", width=0.8,size=0.25)+
+    scale_fill_npg()+
+    labs(x = '', y = '',fill='Source(%)') +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 0.5, vjust = 0.5),
+      legend.position = "right"
+    ))
+(p3 <- ggplot(data=data1,aes(names,value,fill=names))+
+    geom_boxplot()+
+    scale_fill_npg()+
+    labs(x = '', y = '',fill='Source(%)') +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 0.5, vjust = 0.5),
+      legend.position = "right"
+    ))
+ggsave("Fig6a.pdf",width = 8,height = 4)
+write.csv(pro_data,"pro_data.csv")
+
+```
+
+```{r}
+library(ggplot2)
+library(RColorBrewer)
+library(dplyr)
+library(graphics)
+library(reshape)
+library(ggsci)
+pro_data <- read.csv("pro_data.csv",header = T)
+data <- melt(pro_data,id.vars='names')
+# 过滤比例小于 1% 的来源
+data <- data[data$value>0.01,]
+# 保留一位小数
+data$value <- round(data$value*100, digits = 1)
+library(plyr)
+library(RColorBrewer)
+
+data1 <- aggregate(value ~ names + variable, data = data, sum)
+(p1 <- ggplot(data=data1,aes(variable,value,fill=names))+
+    geom_bar(stat="identity", position="fill",color="black", width=0.8,size=0.25)+
+    scale_fill_npg()+
+    labs(x = '', y = '',fill='Source(%)') +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 0.5, vjust = 0.5),
+      legend.position = "right"
+    ))
+sampFile <- read.delim("data//design.txt",header = T)
+data_all = merge(data1, sampFile, by.x="variable", by.y = "SampleID")
+data_all$time3  = factor(data_all$month, levels=c("3","4","5","10","11","12"))
+p2 = ggplot(data_all, aes(x=time3, y = value, fill = names )) + 
+  geom_bar(stat = "identity",position="fill", width=1)+ 
+  scale_y_continuous(labels = scales::percent) + scale_fill_npg()+
+  # 分面，进一步按group分组，x轴范围自由否则位置异常，swith设置标签底部，并调置去除图例背景
+  facet_grid( ~ site2, scales = "free_x", switch = "x") +  theme(strip.background = element_blank())+
+  # 关闭x轴刻度和标签
+  theme(axis.ticks.x = element_blank(), axis.text.x = element_blank())+
+  xlab("Site")+ylab("Percentage (%)")+ theme_classic()+theme(axis.text.x=element_text(angle=45,vjust=1, hjust=1))
+p2
+
+ggsave("Fig.6 FEAST_Multi_sinks.pdf",p2,width = 8,height = 6)
+```
+
+
+
+```{r}
+#样本为行、 物种为列，去掉第一列样本名，保存为antlv3. csv
+
+###########寻找处理的indicator和bipartite网络可视化
+
+library(ggplot2)
+
+library(vegan)
+
+library(indicspecies)
+
+library(edgeR)
+
+#加载函数（可后台获取）
+
+
+
+###导入样品
+
+otu_16s<-read.table("data//sum_g.txt",header = T,row.names = 1)
+indic_soil_16s  <- as.data.frame(t(otu_16s))
+
+design<-read.table("data//design.txt",header = T)
+indic_soil_groups_16s <- design$group
+##鉴定指示物种indicator
+
+
+set.seed(8046)
+
+indicatorsp_soil_16s <- multipatt(indic_soil_16s,indic_soil_groups_16s,duleg = TRUE,control=how(nperm=99))
+
+summary(indicatorsp_soil_16s,alpha=1,indvalcBBp=T)
+
+indic_soil_df_16s <- indicatorsp_soil_16s$sign
+
+## indicator阈值
+
+net_16s<- as.matrix(indic_soil_df_16s[which(indic_soil_df_16s$p.value < 0.05),])
+
+#获得indicator物种表
+
+indicator_taxa<-subset(otu_16s,rownames(otu_16s) %in% rownames(net_16s))
+
+indicator<-cbind(net_16s,indicator_taxa)
+
+#导出
+
+write.csv(indicator,file="data//indicator.csv" )
+
+
+```
+

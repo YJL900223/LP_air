@@ -1,0 +1,257 @@
+---
+title: "物种分类汇总——堆叠柱状图"
+author: "Yong-Xin Liu"
+date: "2018年9月15日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 设置输入输出文件和参数
+
+修改下面`default=`后面的文件和参数。
+
+输入文件有物种分类汇总表(sum_p/c/o/f/g.txt)+分组信息(design.txt)
+
+输入文件"-i", "--input"，默认为空时读取当前目录下的门水平汇总文件sum_p.txt，可手动添加文件位置；
+
+分类级别"-t", "--type"，单个小写字母，选择分类级别，**p c o f g分别代表, 门phylum 纲class 目order 科family 属genus**。仅在输入文件为空时有效。
+
+实验设计"-d", "--design"，默认为上级目录`../design.txt`，可手动修改文件位置；
+
+分组列名"-n", "--group"，默认将design.txt中的group列作为分组信息，可修改为任意列名；
+
+图例数量"-b", "--number"，整数，默认8为显示最高丰度8类，其它归为Low Abundance，常用6,8,10，超过10组时人类很区别颜色
+
+输入文件前缀"-o", "--output"，默认为空时，输出为当前目录前缀为stackplot，stackplot_p_sample.pdf/txt为样本层面图片和对应数据；stackplot_p_group.pdf/txt为组均值图片和对应数据。
+
+图片宽"-w", "--width"，默认6英寸，根据图像布局可适当增大或缩小
+
+图片高"-e", "--height"，默认4英寸，根据图像布局可适当增大或缩小
+
+
+```{r main}
+options(warn = -1)
+# 清空工作环境 Clean enviroment object
+rm(list=ls()) 
+
+
+# 1.2 解析命令行
+# 设置清华源加速下载
+site="https://mirrors.tuna.tsinghua.edu.cn/CRAN"
+# 判断命令行解析是否安装，安装并加载
+if (!suppressWarnings(suppressMessages(require("optparse", character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))) {
+  install.packages(p, repos=site)
+  require("optparse",character.only=T) 
+}
+# 解析命令行
+if (TRUE){
+  option_list = list(
+    make_option(c("-t", "--type"), type="character", default="g",
+                help="Taxonomy level p c o f g; 分类学级别, 门phylum 纲class 目order 科family 属genus [default %default]"),
+    make_option(c("-i", "--input"), type="character", default="",
+                help="Merged taxonomy file; 分类学合并结果 [default %default]"),
+    make_option(c("-d", "--design"), type="character", default="../design.txt",
+                help="design file; 实验设计文件 [default %default]"),
+    make_option(c("-n", "--group"), type="character", default="group",
+                help="name of group type; 分组列名 [default %default]"),
+    make_option(c("-b", "--number"), type="numeric", default=15,
+                help="Number taxonomy for showing; 展示分类数量 [default %default]"),
+    make_option(c("-w", "--width"), type="numeric", default=6,
+                help="Width of figure; 图片宽 [default %default]"),
+    make_option(c("-e", "--height"), type="numeric", default=4,
+                help="Height of figure; 图片高 [default %default]"),
+    make_option(c("-o", "--output"), type="character", default="",
+                help="output directory or prefix; 输出文件前缀, 通常会有统计表txt、矢量图pdf和位图png [default %default]")
+  )
+  opts = parse_args(OptionParser(option_list=option_list))
+  
+  # 调置如果无调设置输出，根据其它参数设置默认输出
+  if (opts$input==""){opts$input=paste("sum_",opts$type,".txt", sep = "")}
+  if (opts$output==""){opts$output=paste("stackplot_",opts$type,"",sep = "")}
+  
+  # 显示输入输出确认是否正确
+  print(paste("Merged taxonomy file is ", opts$input,  sep = ""))
+  print(paste("Taxonomy level is ", opts$type,  sep = ""))
+  print(paste("Number taxonomy for showing is ", opts$number,  sep = ""))
+  print(paste("The design file is ", opts$design,  sep = ""))
+  print(paste("The group name is ", opts$group,  sep = ""))
+  print(paste("Output figure width ", opts$width,  sep = ""))
+  print(paste("Output figure height ", opts$height,  sep = ""))
+  print(paste("The output file prefix is ", opts$output, sep = ""))
+}
+
+
+# 2. 依赖关系检查、安装和加载
+
+# 2.1 安装CRAN来源常用包
+
+# 依赖包列表：参数解析、数据变换、绘图和开发包安装、安装依赖、ggplot主题
+package_list = c("reshape2","ggplot2")
+# 判断R包加载是否成功来决定是否安装后再加载
+for(p in package_list){
+  if(!suppressWarnings(suppressMessages(require(p, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))){
+    install.packages(p, repos=site)
+    suppressWarnings(suppressMessages(library(p, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))
+  }
+}
+
+# 2.2 安装bioconductor常用包
+package_list = c("digest","ggrepel")
+for(p in package_list){
+  if(!suppressWarnings(suppressMessages(require(p, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))){
+    source("https://bioconductor.org/biocLite.R")
+    biocLite(p)
+    suppressWarnings(suppressMessages(library(p, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))
+  }
+}
+
+# 2.3 安装Github常用包
+# 参数解析、数据变换、绘图和开发包安装
+package_list = c("kassambara/ggpubr")
+for(p in package_list){
+  q=unlist(strsplit(p,split = "/"))[2]
+  if(!suppressWarnings(suppressMessages(require(q, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))){
+    install_github(p)
+    suppressWarnings(suppressMessages(library(q, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))
+  }
+}
+
+
+```
+
+## 读取输入文件
+
+```{r read}
+
+# 3. 读取输入文件
+
+# 读取样品分类学文件
+tax_sample = read.table(opts$input, header=T, row.names= 1, sep="\t", comment.char="") 
+
+rownames(tax_sample) = gsub("k__Bacteria\\|p__", "", rownames(tax_sample))
+
+# 读取实验设计
+design = read.table(opts$design, header=T, row.names= 1, sep="\t", comment.char="") 
+
+# 提取样品组信息,默认为genotype可指定
+sampFile = data.frame(group=design[,opts$group],
+                      sample=row.names(design), 
+                      row.names = row.names(design))
+
+# 数据筛选，筛选两文件中共有
+idx = rownames(sampFile) %in% colnames(tax_sample) # match design with alpha
+sampFile = sampFile[idx,]
+tax_sample = tax_sample[,rownames(sampFile)] 
+# 检查，每组是否标准化为100%
+# colSums(tax_sample)
+
+```
+
+## 按样品分类绘图
+
+```{r sample}
+
+# 4. 统计与绘图
+
+# 4.1 每个样品堆叠图 Stackplot for each samples
+
+# 按丰度降序排序
+mean_sort = tax_sample[(order(-rowSums(tax_sample))), ]
+mean_sort = as.data.frame(mean_sort)
+
+# 筛选前7类，其它归为other，可设置不同组数
+other = colSums(mean_sort[opts$number:dim(mean_sort)[1], ])
+mean_sort = mean_sort[1:(opts$number - 1), ]
+mean_sort = rbind(mean_sort,other)
+rownames(mean_sort)[opts$number] = c("Low abundance")
+# 再次检验计算是否出错
+# colSums(mean_sort)
+
+# 保存变量备份，并输出至文件
+merge_tax=mean_sort
+write.table("\t", file=paste(opts$output,"_sample.txt",sep=""),append = F, quote = F, eol = "", row.names = F, col.names = F)
+write.table(merge_tax, file=paste(opts$output,"_sample.txt",sep=""), append = T, quote = F, sep="\t", eol = "\n", na = "NA", dec = ".", row.names = T, col.names = T)
+
+# 添加分类学列
+mean_sort$tax = rownames(mean_sort)
+data_all = as.data.frame(melt(mean_sort, id.vars=c("tax")))
+# data_all$tax  = factor(data_all$tax, levels=rownames(mean_sort))   # set taxonomy order
+data_all = merge(data_all, sampFile, by.x="variable", by.y = "sample")
+
+p = ggplot(data_all, aes(x=variable, y = value, fill = tax )) + 
+  geom_bar(stat = "identity",position="fill", width=1)+ 
+  scale_y_continuous(labels = scales::percent) + 
+  # 分面，进一步按group分组，x轴范围自由否则位置异常，swith设置标签底部，并调置去除图例背景
+  facet_grid( ~ group, scales = "free_x", switch = "x") +  theme(strip.background = element_blank())+
+  # 关闭x轴刻度和标签
+  theme(axis.ticks.x = element_blank(), axis.text.x = element_blank())+
+  xlab("Groups")+ylab("Percentage (%)")+ theme_classic()+theme(axis.text.x=element_text(angle=45,vjust=1, hjust=1))
+p
+
+# 保存pdf和png格式方便查看和编辑
+ggsave(paste(opts$output, "_sample.pdf", sep=""), p, width = opts$width, height = opts$height)
+# ggsave(paste(opts$output, "_sample.png", sep=""), p, width = opts$width, height = opts$height)
+print(paste(opts$output, "_sample.pdf/txt finished.", sep = ""))
+
+
+```
+
+## 按组均值绘制柱状图
+
+```{r group}
+
+# 4.2 按组均值绘制柱状图
+
+# 按组合并求均值
+
+# 转置样品名添加组名，并去除多余的两个样品列
+mat_t = t(merge_tax)
+mat_t2 = merge(sampFile, mat_t, by="row.names")
+mat_t2 = mat_t2[,c(-1,-3)]
+
+# 按组求均值，转置，再添加列名
+mat_mean = aggregate(mat_t2[,-1], by=mat_t2[1], FUN=mean) # mean
+mat_mean_final = do.call(rbind, mat_mean)[-1,]
+geno = mat_mean$group
+colnames(mat_mean_final) = geno
+
+# 保存变量备份，并输出至文件
+mean_sort=as.data.frame(mat_mean_final)
+write.table("\t", file=paste(opts$output,"_group.txt",sep=""),append = F, quote = F, eol = "", row.names = F, col.names = F)
+write.table(mean_sort, file=paste(opts$output,"_group.txt",sep=""), append = T, quote = F, sep="\t", eol = "\n", na = "NA", dec = ".", row.names = T, col.names = T)
+
+# 数据转换长表格并绘图
+mean_sort$tax = rownames(mean_sort)
+data_all = as.data.frame(melt(mean_sort, id.vars=c("tax")))
+# 设置分类学顺序，默认字母，可选丰度或手动
+# data_all$tax  = factor(data_all$tax, levels=rownames(mean_sort))   
+
+p = ggplot(data_all, aes(x=variable, y = value, fill = tax )) + 
+  geom_bar(stat = "identity",position="fill", width=0.7)+ 
+  scale_y_continuous(labels = scales::percent) + 
+  xlab("Groups")+ylab("Percentage (%)")+ theme_classic()
+p
+
+# 保存pdf和png格式方便查看和编辑
+ggsave(paste(opts$output, "_group.pdf", sep=""), p, width = opts$width, height = opts$height)
+# ggsave(paste(opts$output, "_group.png", sep=""), p, width = opts$width, height = opts$height)
+print(paste(opts$output, "_group.pdf/txt finished.", sep = ""))
+
+
+# 5. 保存图表
+
+# 提示工作完成
+
+print("Taxonomy stackplot in sample done!!!")
+```
+
+
+If used this script, please cited:
+  Zhang, J., Zhang, N., Liu, Y.X., Zhang, X., Hu, B., Qin, Y., Xu, H., Wang, H., Guo, X., Qian, J., et al. (2018).
+Root microbiota shift in rice correlates with resident time in the field and developmental stage. Sci China Life Sci 61,
+https://doi.org/10.1007/s11427-018-9284-4
+
+Copyright 2016-2018 Yong-Xin Liu <metagenome@126.com>

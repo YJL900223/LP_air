@@ -1,0 +1,263 @@
+#SampleID	Description	Env	SourceSink	Study	Details
+G1CA	G1CA	G1	sink	LP1	air from LP1 environment
+G1CB	G1CB	G1	sink	LP1	air from LP1 environment
+G1CC	G1CC	G1	sink	LP1	air from LP1 environment
+G1IA	G1IA	G1	sink	LP1	air from LP1 environment
+G1IB	G1IB	G1	sink	LP1	air from LP1 environment
+G1IC	G1IC	G1	sink	LP1	air from LP1 environment
+G1P1A	G1P1A	G1	sink	LP1	air from LP1 environment
+G1P1B	G1P1B	G1	sink	LP1	air from LP1 environment
+G1P1C	G1P1C	G1	sink	LP1	air from LP1 environment
+G1P2A	G1P2A	G1	sink	LP1	air from LP1 environment
+G1P2B	G1P2B	G1	sink	LP1	air from LP1 environment
+G1P2C	G1P2C	G1	sink	LP1	air from LP1 environment
+G1SA	G1SA	G1	sink	LP1	air from LP1 environment
+G1SC	G1SC	G1	sink	LP1	air from LP1 environment
+G1STA	G1STA	G1	sink	LP1	air from LP1 environment
+G1STC	G1STC	G1	sink	LP1	air from LP1 environment
+G2CA	G2CA	G2	sink	LP1	air from LP1 environment
+G2CB	G2CB	G2	sink	LP1	air from LP1 environment
+G2CC	G2CC	G2	sink	LP1	air from LP1 environment
+G2IA	G2IA	G2	sink	LP1	air from LP1 environment
+G2IB	G2IB	G2	sink	LP1	air from LP1 environment
+G2IC	G2IC	G2	sink	LP1	air from LP1 environment
+G2P1A	G2P1A	G2	sink	LP1	air from LP1 environment
+G2P1B	G2P1B	G2	sink	LP1	air from LP1 environment
+G2P1C	G2P1C	G2	sink	LP1	air from LP1 environment
+G2P2A	G2P2A	G2	sink	LP1	air from LP1 environment
+G2P2B	G2P2B	G2	sink	LP1	air from LP1 environment
+G2P2C	G2P2C	G2	sink	LP1	air from LP1 environment
+G2SA	G2SA	G2	sink	LP1	air from LP1 environment
+G2SC	G2SC	G2	sink	LP1	air from LP1 environment
+G2STA	G2STA	G2	sink	LP1	air from LP1 environment
+G2STB	G2STB	G2	sink	LP1	air from LP1 environment
+G2STC	G2STC	G2	sink	LP1	air from LP1 environment
+SA01	Oral 1	oral	source	LP1	NA
+SA03	Oral 2	oral	source	LP1	NA
+SA04	Oral 3	oral	source	LP1	NA
+SA05	Oral 4	oral	source	LP1	NA
+SA06	Oral 5	oral	source	LP1	NA
+SA07	Oral 6	oral	source	LP1	NA
+SA09	Oral 7	oral	source	LP1	NA
+SA11	Oral 8	oral	source	LP1	NA
+SA12	Oral 9	oral	source	LP1	NA
+SA13	Oral 10	oral	source	LP1	NA
+SA14	Oral 11	oral	source	LP1	NA
+SA15	Oral 12	oral	source	LP1	NA
+SA16	Oral 13	oral	source	LP1	NA
+SA17	Oral 14	oral	source	LP1	NA
+SA18	Oral 15	oral	source	LP1	NA
+SA19	Oral 16	oral	source	LP1	NA
+SB01	Oral 17	oral	source	LP1	NA
+SB02	Oral 18	oral	source	LP1	NA
+SB03	Oral 19	oral	source	LP1	NA
+SB04	Oral 20	oral	source	LP1	NA
+SB05	Oral 21	oral	source	LP1	NA
+SB06	Oral 22	oral	source	LP1	NA
+SB07	Oral 23	oral	source	LP1	NA
+SB08	Oral 24	oral	source	LP1	NA
+SB09	Oral 25	oral	source	LP1	NA
+SB10	Oral 26	oral	source	LP1	NA
+SB11	Oral 27	oral	source	LP1	NA
+SB12	Oral 28	oral	source	LP1	NA
+SB13	Oral 29	oral	source	LP1	NA
+SB15	Oral 30	oral	source	LP1	NA
+SB16	Oral 31	oral	source	LP1	NA
+SB17	Oral 32	oral	source	LP1	NA
+SB18	Oral 33	oral	source	LP1	NA
+SB19	Oral 34	oral	source	LP1	NA
+SC01	Oral 35	oral	source	LP1	NA
+SC02	Oral 36	oral	source	LP1	NA
+SC03	Oral 37	oral	source	LP1	NA
+SC04	Oral 38	oral	source	LP1	NA
+SC05	Oral 39	oral	source	LP1	NA
+SC06	Oral 40	oral	source	LP1	NA
+SC07	Oral 41	oral	source	LP1	NA
+SC08	Oral 42	oral	source	LP1	NA
+SC09	Oral 43	oral	source	LP1	NA
+SC10	Oral 44	oral	source	LP1	NA
+SC11	Oral 45	oral	source	LP1	NA
+SC12	Oral 46	oral	source	LP1	NA
+SC13	Oral 47	oral	source	LP1	NA
+SC14	Oral 48	oral	source	LP1	NA
+SC15	Oral 49	oral	source	LP1	NA
+SC17	Oral 50	oral	source	LP1	NA
+SC18	Oral 51	oral	source	LP1	NA
+SC19	Oral 52	oral	source	LP1	NA
+SD01	Oral 53	oral	source	LP1	NA
+SD02	Oral 54	oral	source	LP1	NA
+SD03	Oral 55	oral	source	LP1	NA
+SD04	Oral 56	oral	source	LP1	NA
+SD05	Oral 57	oral	source	LP1	NA
+SD06	Oral 58	oral	source	LP1	NA
+SD07	Oral 59	oral	source	LP1	NA
+SD08	Oral 60	oral	source	LP1	NA
+SD09	Oral 61	oral	source	LP1	NA
+SD10	Oral 62	oral	source	LP1	NA
+SD11	Oral 63	oral	source	LP1	NA
+SD12	Oral 64	oral	source	LP1	NA
+SD13	Oral 65	oral	source	LP1	NA
+SD14	Oral 66	oral	source	LP1	NA
+SD15	Oral 67	oral	source	LP1	NA
+SD17	Oral 68	oral	source	LP1	NA
+SD18	Oral 69	oral	source	LP1	NA
+SD19	Oral 70	oral	source	LP1	NA
+FR1	Plant 1	Plant	source	LP1	NA
+FR2	Plant 2	Plant	source	LP1	NA
+FR3	Plant 3	Plant	source	LP1	NA
+FR4	Plant 4	Plant	source	LP1	NA
+FR5	Plant 5	Plant	source	LP1	NA
+FR6	Plant 6	Plant	source	LP1	NA
+GR1	Plant 7	Plant	source	LP1	NA
+GR2	Plant 8	Plant	source	LP1	NA
+GR3	Plant 9	Plant	source	LP1	NA
+GR4	Plant 10	Plant	source	LP1	NA
+GR5	Plant 11	Plant	source	LP1	NA
+GR6	Plant 12	Plant	source	LP1	NA
+HR1	Plant 13	Plant	source	LP1	NA
+HR2	Plant 14	Plant	source	LP1	NA
+HR3	Plant 15	Plant	source	LP1	NA
+HR4	Plant 16	Plant	source	LP1	NA
+HR5	Plant 17	Plant	source	LP1	NA
+HR6	Plant 18	Plant	source	LP1	NA
+SR1	Plant 19	Plant	source	LP1	NA
+SR2	Plant 20	Plant	source	LP1	NA
+SR3	Plant 21	Plant	source	LP1	NA
+SR4	Plant 22	Plant	source	LP1	NA
+SR5	Plant 23	Plant	source	LP1	NA
+SR6	Plant 24	Plant	source	LP1	NA
+F11Fcsp	Gut 1	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F11Fcsw	Gut 2	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F12Fcsp	Gut 3	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F12Fcsw	Gut 4	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F13Fcsw	Gut 5	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F14Fcsw	Gut 6	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F21Fcsp	Gut 7	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F21Fcsw	Gut 8	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F22Fcsp	Gut 9	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F22Fcsw	Gut 10	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F23Fcsw	Gut 11	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F24Fcsw	Gut 12	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F31Fcsp	Gut 13	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F31Fcsw	Gut 14	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F32Fcsp	Gut 15	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F32Fcsw	Gut 16	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F33Fcsw	Gut 17	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F34Fcsw	Gut 18	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M11Fcsp	Gut 19	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M11Fcsw	Gut 20	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M12Fcsp	Gut 21	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M12Fcsw	Gut 22	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M13Fcsw	Gut 23	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M14Fcsw	Gut 24	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M21Fcsp	Gut 25	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M21Fcsw	Gut 26	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M22Fcsp	Gut 27	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M22Fcsw	Gut 28	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M23Fcsw	Gut 29	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M24Fcsw	Gut 30	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M31Fcsp	Gut 31	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M31Fcsw	Gut 32	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M32Fcsp	Gut 33	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M32Fcsw	Gut 34	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M33Fcsw	Gut 35	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M41Fcsp	Gut 36	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M41Fcsw	Gut 37	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M42Fcsp	Gut 38	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M42Fcsw	Gut 39	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M43Fcsw	Gut 40	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M44Fcsw	Gut 41	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M53Fcsw	Gut 42	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M54Fcsw	Gut 43	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M63Fcsw	Gut 44	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M64Fcsw	Gut 45	Gut	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F11Frhd	Forehead 1	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F24Frhd	Forehead 2	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F32Frhd	Forehead 3	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M14Frhd	Forehead 4	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M23Frhd	Forehead 5	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M32Frhd	Forehead 6	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M43Frhd	Forehead 7	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M54Frhd	Forehead 8	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M63Frhd	Forehead 9	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F11Indl	L index 1	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F21Indl	L index 2	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F31Indl	L index 3	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F32Indl	L index 4	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M11Indl	L index 5	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M12Indl	L index 6	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M22Indl	L index 7	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M31Indl	L index 8	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M41Indl	L index 9	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F13Plml	L Palm 1	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F24Plml	L Palm 2	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F31Plml	L Palm 3	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M13Plml	L Palm 4	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M23Plml	L Palm 5	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M33Plml	L Palm 6	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M43Plml	L Palm 7	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M53Plml	L Palm 8	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M63Plml	L Palm 9	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F12Indr	R index 1	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F21Indr	R index 2	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F31Indr	R index 3	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F32Indr	R index 4	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M11Indr	R index 5	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M21Indr	R index 6	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M31Indr	R index 7	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M41Indr	R index 8	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M42Indr	R index 9	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F11Plmr	R palm 1	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F23Plmr	R palm 2	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+F32Plmr	R palm 3	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M11Plmr	R palm 4	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M23Plmr	R palm 5	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M33Plmr	R palm 6	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M43Plmr	R palm 7	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M53Plmr	R palm 8	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+M64Plmr	R palm 9	Skin	source	Bacterial_variation_in_human_body_habitats_across_space_and_time	NA
+BF1	Alfisol 1	Soil	source	88_Soils	NA
+CA2	Alfisol 2	Soil	source	88_Soils	NA
+CO2	Alfisol 3	Soil	source	88_Soils	NA
+DF3	Alfisol 4	Soil	source	88_Soils	NA
+HI4	Andisol 1	Soil	source	88_Soils	NA
+HJ2	Andisol 2	Soil	source	88_Soils	NA
+JT1	Aridisol 3	Soil	source	88_Soils	NA
+MD5	Aridisol 4	Soil	source	88_Soils	NA
+SF1	Aridisol 5	Soil	source	88_Soils	NA
+SV1	Aridisol 6	Soil	source	88_Soils	NA
+SV2	Aridisol 7	Soil	source	88_Soils	NA
+BP1	Entisol 1	Soil	source	88_Soils	NA
+SA1	Entisol 2	Soil	source	88_Soils	NA
+SA2	Entisol 3	Soil	source	88_Soils	NA
+SP2	Entisol 4	Soil	source	88_Soils	NA
+BZ1	Gelisol 1	Soil	source	88_Soils	NA
+TL3	Gelisol 2	Soil	source	88_Soils	NA
+CC1	Inceptisol 1	Soil	source	88_Soils	NA
+CF3	Inceptisol 2	Soil	source	88_Soils	NA
+HF2	Inceptisol 3	Soil	source	88_Soils	NA
+IE2	Inceptisol 4	Soil	source	88_Soils	NA
+LQ2	Inceptisol 5	Soil	source	88_Soils	NA
+MP2	Inceptisol 6	Soil	source	88_Soils	NA
+MT1	Inceptisol 7	Soil	source	88_Soils	NA
+PE1	Inceptisol 8	Soil	source	88_Soils	NA
+SB1	Inceptisol 9	Soil	source	88_Soils	NA
+CM1	Mollisol 1	Soil	source	88_Soils	NA
+SN1	Inceptisol 10	Soil	source	88_Soils	NA
+SN3	Inceptisol 11	Soil	source	88_Soils	NA
+SP1	Inceptisol 12	Soil	source	88_Soils	NA
+CO3	Mollisol 2	Soil	source	88_Soils	NA
+CR1	Mollisol 3	Soil	source	88_Soils	NA
+GB5	Mollisol 4	Soil	source	88_Soils	NA
+KP4	Mollisol 5	Soil	source	88_Soils	NA
+RT1	Mollisol 6	Soil	source	88_Soils	NA
+RT2	Mollisol 7	Soil	source	88_Soils	NA
+SK1	Mollisol 8	Soil	source	88_Soils	NA
+SK3	Mollisol 9	Soil	source	88_Soils	NA
+SR2	Mollisol 10	Soil	source	88_Soils	NA
+VC2	Mollisol 11	Soil	source	88_Soils	NA
+AR1	Oxisol 1	Soil	source	88_Soils	NA
+PE7	Oxisol 2	Soil	source	88_Soils	NA
+BB2	Spodosol 1	Soil	source	88_Soils	NA
+IT2	Spodosol 2	Soil	source	88_Soils	NA
+CL3	Ultisol 	Soil	source	88_Soils	NA
